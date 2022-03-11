@@ -31,7 +31,7 @@ class Knight(Character):
         """
         print(speech)
         self.restore_hp(10)
-        print("\t" + self.current_hp)
+        print(f"\t{self.current_hp}")
         """
         Une éclaircie entre les arbres vous fait apercevoir le château du roi au loin !
         Vous decidez de vous y diriger, vous laissez derriere vous des traces de votre
@@ -42,7 +42,7 @@ class Knight(Character):
         *Oui/Non*
         """
 
-        if (input("\tOui/Non ?") == "Non"):
+        if (input("\tOui/Non ? :\n\t").lower() == "non"):
             a = \
                 """
                 Vous decidez de continuer tout droit, au bout de quelques minutes la
