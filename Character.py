@@ -2,7 +2,7 @@
 """
 Created on Fri Mar 11 09:20:12 2022
 
-@author: gfmac
+@author: Quentin Brice Théo Micka Karim François
 """
 from abc import abstractmethod
 
