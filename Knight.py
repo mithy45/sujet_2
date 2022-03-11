@@ -24,14 +24,14 @@ class Knight(Character):
         ennemy = Kobolt()
         ennemy.attack(self)
         self.attack(ennemy)
-
+        print(f"Il vous reste {self.current_hp}")
         speech = \
             f"""
         Ouf, vous vous en sortez, il vous reste {self.current_hp} hp, vous trouvez une pomme... 
         """
         print(speech)
         self.restore_hp(10)
-        print(f"\t{self.current_hp}")
+        print(f"\tVous avez {self.current_hp} hp")
         speech = \
         """
         Une éclaircie entre les arbres vous fait apercevoir le château du roi au loin !

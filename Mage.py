@@ -9,7 +9,7 @@ class Mage(Character):
     def speech(self):
         speech = \
             f"""
-        Malheureusment vous êtes fait teleporter dans la foret de Fark, là où les monstres les plus terrifiants rodent ! 
+        Malheureusment vous êtes fait téléporter dans la foret de Fark, là où les monstres les plus terrifiants rodent ! 
         Vous vous remettez à peine de vos esprits que vous vous faites déjà agresser par 
         un Kobolt ! Vous vous saisissez de votre arme et engagez le combat ! 
         *combat*
@@ -18,14 +18,15 @@ class Mage(Character):
         ennemy = Kobolt()
         ennemy.attack(self)
         self.attack(ennemy)
-
+        print(f"Il vous reste {self.current_hp}")
         speech = \
             f"""
         Ouf, vous vous en sortez, il vous reste {self.current_hp} hp, vous trouvez une pomme... 
         """
         print(speech)
         self.restore_hp(10)
-        print(f"\t{self.current_hp}")
+        print(f"\tVous avez {self.current_hp} hp")
+        speech = \
         """
         Une éclaircie entre les arbres vous fait apercevoir le château du roi au loin !
         Vous decidez de vous y diriger, vous laissez derriere vous des traces de votre
@@ -35,6 +36,7 @@ class Mage(Character):
 
         *Oui/Non*
         """
+        print(speech)
 
         if (input("\tOui/Non ? :\n\t").lower() == "non"):
             a = \
