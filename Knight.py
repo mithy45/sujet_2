@@ -21,7 +21,6 @@ class Knight(Character):
         Malheureusment vous êtes fait téléporter dans la foret de Fark, là où les monstres les plus terrifiants rodent ! 
         Vous vous remettez à peine de vos esprits que vous vous faites déjà agresser par 
         un Kobolt ! Vous vous saisissez de votre arme et engagez le combat ! 
-        *combat*
         """
         print(speech)
         Combat(self, Kobolt()).fight()
@@ -35,14 +34,14 @@ class Knight(Character):
         speech = \
         """
         Une éclaircie entre les arbres vous fait apercevoir le château du roi au loin !
-        Vous decidez de vous y diriger, vous laissez derriere vous des traces de votre
+        Vous décidez de vous y diriger, vous laissez derriere vous des traces de votre
         passage pour vous repérer.
 
-        Apres quelque temps vous trouvez un autre chemin, voulez-vous le suivre ?
+        Apres quelque temps vous trouvez un autre chemin.
         """
         print(speech)
 
-        if choose("Oui/Non ?", ['oui', 'non']) == "non":
+        if choose("Voulez-vous le suivre ?", ['oui', 'non']) == "non":
             a = \
                 """
                 Vous decidez de continuer tout droit, au bout de quelques minutes la

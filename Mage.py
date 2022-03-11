@@ -6,67 +6,79 @@ Created on Fri Mar 11 09:20:12 2022
 """
 from Character import Character
 from Combat import Combat
+from Knight import Knight
 from Kobolt import Kobolt
 from utils import choose
 
 
 class Mage(Character):
-    def __init__(self, name="Théo", ad=80, max_hp=50, res=0.90, monster=False, ia=False):
+    def __init__(self, name="Théo", ad=80, max_hp=60, res=0.90, monster=False, ia=False):
         super().__init__(name, "Mage", max_hp, ad, max_hp, res, monster, ia)
 
     def speech(self):
         speech = \
             f"""
-        Malheureusment vous êtes fait téléporter dans la foret de Fark, là où les monstres les plus terrifiants rodent ! 
-        Vous vous remettez à peine de vos esprits que vous vous faites déjà agresser par 
-        un Kobolt ! Vous vous saisissez de votre arme et engagez le combat ! 
-        *combat*
-        """
+        Bonjour, grand mage {self.name} vous avez été recruté par Monsieur Borte, le marchand de bijoux, 
+        pour faire l’escorte vers la plus grande ville marchande de la région pour y faire affaire avec les 
+        nobles. Vous décidez de vous coucher tôt pour cette nouvelle aventure qui démarre demain matin à l’aube. 
+        Après votre excellent déjeuner de pain rassis et le reste de beurre que vous avez. Vous prenez votre 
+        bâton magique et vous vous retrouvez sur la place de la ville où le marchand vous attend avec sa petite 
+        charrette. Vous vous retrouvez hors de la ville. Ça y est, l’aventure commence ! Vous arrivez dans une 
+        forêt sombre tout à coup un petit Kobolt affamé sort d’un buisson pour vous attaquer. Le combat commence ! 
+            """
         print(speech)
         Combat(self, Kobolt()).fight()
-        speech = \
-            f"""
-        Ouf, vous vous en sortez, il vous reste {self.current_hp} hp, vous trouvez une pomme... 
-        """
-        print(speech)
-        self.restore_hp(10)
-        print(f"\tVous avez {self.current_hp}hp")
+
         speech = \
             """
-        Une éclaircie entre les arbres vous fait apercevoir le château du roi au loin !
-        Vous decidez de vous y diriger, vous laissez derriere vous des traces de votre
-        passage pour vous repérer.
-
-        Apres quelque temps vous trouvez un autre chemin, voulez-vous le suivre ?
+        Vous arrivez à vous en sortir ! Monsieur Borte est rassuré de vous avoir en escorte. 
+        Après cette péripétie, vous reprenez la route. Après plusieurs heures passées dans la forêt, 
+        vous commencez à entrevoir le début d’une plaine. Vous vous sentez mal depuis la fin du combat. 
+        Comme-ci quelque chose vous observez... Tout à coup, un Kobolt adulte vous saute dessus ! 
         """
         print(speech)
+        kobolt = Kobolt()
+        kobolt.attack(self)
 
-        if choose("Oui/Non ?", ['oui', 'non']) == "non":
-            a = \
-                """
-        Vous decidez de continuer tout droit, au bout de quelques minutes la
-        lumiere se fait de plus en plus rare vous regrettez votre choix, vous decidez de
-        regarder derrière vous pour peut-être faire marche arriere... Quoi ?!
-        Impossible ! Vous vous rendez compte que vos traces laissées ont disparus ! Vous
-        degainez votre arme, vous vous mettez aux aguets ! Tout d'un coup tout devient
-        noir, vous sentez un coup de poignard dans le dos, puis dans le ventre, vous
-        entendez des hurlements et des cris de plaisir.... des bandits... Vous mourrez
-        lentements... Vous pensez à votre Famille... GAME OVER
+        speech = \
             """
-        else:
-            a = \
+        Vous vous faites remarquer que c’est sûrement la mère du petit que 
+        vous avez chassé quelques heures auparavant. Le combat s’engage !
+        """
+        print(speech)
+        Combat(kobolt, self).fight()
+        if kobolt.is_alive():
+            speech = \
                 """
-        Continuer tout droit vous donne des frissons, vous sentez avoir fait le
-        bon choix. Vous continuez sur votre chemin, peu de temps après à la lisière de
-        la fôret un bandit vous tend une embuscade ! 
-        Arfff satané bandit. C'est l'heure du combat !
-
-        Vous envoyez là ou ce bandit devrait etre ! En enfer !
-
-        Vous sortez de la foret et voyez au loin votre chateau... Au pont levis vous voyez une
-        troupes de cavalier se dirigez vers vous, vers votre fôret, vous reperez au loin
-        l'armure reluisante de votre commandant, vous savez au fond de vous que cette
-        petite brigade et venu à votre secours, vous vous sentez sauvé ! Vous decidez de
-        prendre un temps de repos sur l'arbre le plus proche. Bien joué à vous !
+        Vous arrivez à prendre la fuite avec la charrette. Après une heure de fuite, la nuit, commence à tomber. 
+        Vous décidez de faire un feu de camp avec Monsieur Borte. Après une petite soupe et quelques soins,
+        vous vous endormez à côté du feu… Vous entendez un hurlement à côté de vous après quelques heures de sommeil. 
+        C’était la femelle kobolt qui est venue se venger. 
+        Cette fois, elle n’était pas seule. Ils étaient une meute de 5 !!!! 
+        Vous vous retrouvez dépassé et vous mourrez lamentablement ...
             """
-        print(a)
+            print(speech)
+            return
+        speech = \
+            """
+        Vous arrivez à vous en sortir malgré les blessures. 
+        Monsieur Borte par admiration, vous offre une potion pour votre courage.
+        Le réveil se fait difficile le matin, mais vous reprenez la route avec panache. 
+        Vous avez déjà plus de la moitié du chemin. L’aventure se déroule sans accroche depuis ce matin. 
+        Il ne vous reste plus que 2 h avant d’arriver à destination. Monsieur Borte décide de faire une pause. 
+        Vous vous arrêtez donc sur le bord de chemin. Un bandit commence à courir dans votre direction ! 
+        Monsieur Borte et vous décident de vite vous enfuir afin d’éviter le combat. 
+        À peine le début de votre fuite, le bandit envoie sa hachette sur la charrette ce qui l’immobilise. 
+        La fuite est donc impossible. Le combat est inévitable ... Le combat s’entame !
+        """
+        print(speech)
+        Combat(self, Knight(name="Soldat", ad=30, max_hp=70, res=0.75, monster=False, ia=True)).fight()
+
+        speech = \
+            """
+        Félicitations ! Vous remportez votre combat ! 
+        Après le rafistolage de la charrette, vous reprenez votre route. Vous arrivez enfin à destination ! 
+        Après cette dure aventure, Monsieur Borte vous donne votre récompense et vous invite dans
+        l’auberge de la place pour une bière bien méritée.
+        """
+        print(speech)
