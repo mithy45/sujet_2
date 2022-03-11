@@ -28,4 +28,12 @@ class Character:
         pass
 
     def presentation(self):
-        print(f"Je suis {self.name} héritié de Jeanne d'arc, et je suis un {self.job}")
+        a = \
+        f"""
+        Bonjour {self.name}, du haut de vos 25ans, vous etes le meilleure {self.job} du Royaume de Kaslow, malheuresment vous
+        vous êtes fait teleporter dans la foret de Fark, là ou les monstres les plus
+        terrifiants rode ! 
+        Vous vous remettez à peinde de vos esprits que vous vous faites deja agresser par
+        un Kobolt ! Vous vous saisissez de votre arme et engagez le combat ! 
+        """
+        print(a)

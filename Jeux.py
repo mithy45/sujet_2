@@ -26,10 +26,12 @@ class Jeux:
             print("wrong jobs or syntax, try again")
             job = input("enter job (warrior, mage or knight) : \n")
         if job == "mage":
-            self.principale_player = Mage(name)
+            self.principale_player = Mage()
         elif job == "warrior":
-            self.principale_player = Warrior(name)
+            self.principale_player = Warrior()
         else:
-            self.principale_player = Knight(name)
-        # LANCER SCENARIO
+            self.principale_player = Knight()
+
+        self.principale_player.presentation()
+        self.principale_player.speech()
 
