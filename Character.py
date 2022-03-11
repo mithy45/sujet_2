@@ -22,3 +22,10 @@ class Character:
     @abstractmethod
     def get_damage(self, ad):
         pass
+
+    @abstractmethod
+    def speech(self):
+        pass
+
+    def presentation(self):
+        print(f"Je suis {self.name} héritié de Jeanne d'arc, et je suis un {self.job}")

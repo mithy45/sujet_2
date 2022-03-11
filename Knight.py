@@ -11,6 +11,9 @@ class Knight(Character):
     def __init__(self, name, ad=30, max_hp=120):
         super().__init__(name, "Knight", max_hp, ad, max_hp)
 
+    def __init__(self):
+        super().__init__("Quentin", "Knight", 120, 30, 120)
+
     def get_damage(self, ad):
         self.current_hp -= int(ad * 0.50)
         if self.current_hp < 0:
