@@ -5,12 +5,14 @@ Created on Fri Mar 11 10:13:02 2022
 @author: gfmac
 """
 from Character import Character
+from Combat import Combat
 from Kobolt import Kobolt
+from utils import choose
 
 
 class Knight(Character):
     def __init__(self, name="Quentin", ad=30, max_hp=120, res=0.50):
-        super().__init__(name, "Knight", max_hp, ad, max_hp, res)
+        super().__init__(name, "Knight", max_hp, ad, max_hp, res, False)
 
     def speech(self):
         speech = \
@@ -21,17 +23,15 @@ class Knight(Character):
         *combat*
         """
         print(speech)
-        ennemy = Kobolt()
-        ennemy.attack(self)
-        self.attack(ennemy)
-        print(f"Il vous reste {self.current_hp}")
+        Combat(self, Kobolt()).fight()
+        print(f"Il vous reste {self.current_hp}hp")
         speech = \
             f"""
         Ouf, vous vous en sortez, il vous reste {self.current_hp} hp, vous trouvez une pomme... 
         """
         print(speech)
         self.restore_hp(10)
-        print(f"\tVous avez {self.current_hp} hp")
+        print(f"\tVous avez {self.current_hp}hp")
         speech = \
         """
         Une éclaircie entre les arbres vous fait apercevoir le château du roi au loin !
@@ -39,12 +39,10 @@ class Knight(Character):
         passage pour vous repérer.
 
         Apres quelque temps vous trouvez un autre chemin, voulez-vous le suivre ?
-
-        *Oui/Non*
         """
         print(speech)
 
-        if (input("\tOui/Non ? :\n\t").lower() == "non"):
+        if choose("Oui/Non ?", ['oui', 'non']) == "non":
             a = \
                 """
                 Vous decidez de continuer tout droit, au bout de quelques minutes la

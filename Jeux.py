@@ -7,7 +7,7 @@ Created on Fri Mar 11 09:28:28 2022
 from Mage import Mage
 from Knight import Knight
 from Warrior import Warrior
-
+from utils import choose
 
 
 class Jeux:
@@ -18,14 +18,11 @@ class Jeux:
 
     def main(self):
         name = input("Entrez votre nom :\n\t")
-        job = input("Entrez votre classe (warrior, mage or knight) : \n\t")
-        jobs = ["warrior", "mage", "knight"]
-        while not (job in jobs):
-            print("wrong jobs or syntax, try again")
-            job = input("Entrez votre classe (warrior, mage or knight) : \n\t")
+        jobs = ["guerrier", "mage", "chevalier"]
+        job = choose("Entrez votre classe ", jobs)
         if job == "mage":
             self.principale_player = Mage(name)
-        elif job == "warrior":
+        elif job == "guerrier":
             self.principale_player = Warrior(name)
         else:
             self.principale_player = Knight(name)
