@@ -9,7 +9,7 @@ from abc import abstractmethod
 
 class Character:
 
-    def __init__(self, name, job, current_hp, ad, max_hp, res, monster):
+    def __init__(self, name, job, current_hp, ad, max_hp, res, monster, ia):
         self.name = name
         self.job = job
         self.current_hp = current_hp
@@ -17,6 +17,7 @@ class Character:
         self.max_hp = max_hp
         self.res = res
         self.monster = monster
+        self.ia = ia
 
     def attack(self, ennemy):
         print(f"{self.name} : Prend ça !")
@@ -30,7 +31,7 @@ class Character:
         print(f"{self.name} : Ouch.. -{dmg}hp.. Il reste {self.current_hp}hp à {self.name}")
 
     def restore_hp(self, hp):
-        print(f"\tCa fait du bien.. + {hp}hp")
+        print(f"\tCa fait du bien.. +{hp}hp")
         self.current_hp += hp
         if self.current_hp > self.max_hp:
             self.current_hp = self.max_hp

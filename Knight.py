@@ -12,8 +12,8 @@ from utils import choose
 
 
 class Knight(Character):
-    def __init__(self, name="Quentin", ad=30, max_hp=120, res=0.50):
-        super().__init__(name, "Chevalier", max_hp, ad, max_hp, res, False)
+    def __init__(self, name="Quentin", ad=30, max_hp=120, res=0.50, monster=False, ia=False):
+        super().__init__(name, "Chevalier", max_hp, ad, max_hp, res, monster, ia)
 
     def speech(self):
         speech = \

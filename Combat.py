@@ -14,7 +14,7 @@ class Combat:
 
     def fight(self):
         while self.character1.is_alive() and self.character2.is_alive():
-            if not self.character1.monster:
+            if not self.character1.ia and self.character2.monster:
                 choice = choose("Que voulez-vous faire comme action ? ", ["fuir", "combattre"])
                 if choice == "fuir":
                     print("Vous fuyez...")
@@ -24,7 +24,7 @@ class Combat:
             else:
                 self.character1.attack(self.character2)
             if self.character2.is_alive():
-                if not self.character2.monster:
+                if not self.character2.ia and self.character1.monster:
                     choice = choose("Que voulez-vous faire comme action ? ", ["fuir", "combattre"])
                     if choice == "fuir":
                         print("Vous fuyez...")

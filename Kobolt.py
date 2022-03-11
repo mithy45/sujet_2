@@ -8,5 +8,8 @@ from Character import Character
 
 
 class Kobolt(Character):
-    def __init__(self, name="Vilain", ad=15, max_hp=50, res=0.75):
-        super().__init__(name, "Kobolt", max_hp, ad, max_hp, res, True)
+    def __init__(self, name="Vilain", ad=15, max_hp=50, res=0.75, monster=True, ia=True):
+        super().__init__(name, "Kobolt", max_hp, ad, max_hp, res, monster, ia)
+
+    def speech(self):
+        pass
