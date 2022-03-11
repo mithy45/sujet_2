@@ -6,7 +6,7 @@ Created on Fri Mar 11 09:28:28 2022
 """
 
 from random import randint
-import Character
+from Character import Character
 
 class Jeux:
     
