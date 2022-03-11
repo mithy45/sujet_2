@@ -6,7 +6,7 @@ from utils import choose
 
 class Warrior(Character):
     def __init__(self, name="Karim", ad=50, max_hp=100, res=0.60):
-        super().__init__(name, "Warrior", max_hp, ad, max_hp, res, False)
+        super().__init__(name, "Guerrier", max_hp, ad, max_hp, res, False)
 
     def speech(self):
         speech = \
@@ -18,7 +18,6 @@ class Warrior(Character):
         """
         print(speech)
         Combat(self, Kobolt()).fight()
-        print(f"Il vous reste {self.current_hp}hp")
         speech = \
             f"""
         Ouf, vous vous en sortez, il vous reste {self.current_hp} hp, vous trouvez une pomme... 

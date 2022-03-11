@@ -18,7 +18,6 @@ class Mage(Character):
         """
         print(speech)
         Combat(self, Kobolt()).fight()
-        print(f"Il vous reste {self.current_hp}hp")
         speech = \
             f"""
         Ouf, vous vous en sortez, il vous reste {self.current_hp} hp, vous trouvez une pomme... 

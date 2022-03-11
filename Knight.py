@@ -12,7 +12,7 @@ from utils import choose
 
 class Knight(Character):
     def __init__(self, name="Quentin", ad=30, max_hp=120, res=0.50):
-        super().__init__(name, "Knight", max_hp, ad, max_hp, res, False)
+        super().__init__(name, "Chevalier", max_hp, ad, max_hp, res, False)
 
     def speech(self):
         speech = \
@@ -24,7 +24,6 @@ class Knight(Character):
         """
         print(speech)
         Combat(self, Kobolt()).fight()
-        print(f"Il vous reste {self.current_hp}hp")
         speech = \
             f"""
         Ouf, vous vous en sortez, il vous reste {self.current_hp} hp, vous trouvez une pomme... 

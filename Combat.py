@@ -11,7 +11,7 @@ class Combat:
             if not self.character1.monster:
                 choice = choose("Que voulez-vous faire comme action ? ", ["fuir", "combattre"])
                 if choice == "fuir":
-                    print("\tVous fuyez...")
+                    print("Vous fuyez...")
                     return
                 else:
                     self.character1.attack(self.character2)
@@ -21,7 +21,7 @@ class Combat:
                 if not self.character2.monster:
                     choice = choose("Que voulez-vous faire comme action ? ", ["fuir", "combattre"])
                     if choice == "fuir":
-                        print("\tVous fuyez...")
+                        print("Vous fuyez...")
                         return
                     else:
                         self.character2.attack(self.character1)
