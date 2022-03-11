@@ -4,6 +4,7 @@ Created on Fri Mar 11 09:20:12 2022
 
 @author: gfmac
 """
+from abc import abstractmethod
 
 
 class Character:
@@ -17,3 +18,7 @@ class Character:
 
     def attack(self, ennemy):
         ennemy.current_hp -= self.ad
+
+    @abstractmethod
+    def get_damage(self, ad):
+        pass
