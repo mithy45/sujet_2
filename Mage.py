@@ -3,7 +3,7 @@ from Kobolt import Kobolt
 
 
 class Mage(Character):
-    def __init__(self, name="Théo", ad=80, max_hp=50, res=0.90):
+    def __init__(self, name="Théo", ad=80, max_hp=50, res=0.70):
         super().__init__(name, "Mage", max_hp, ad, max_hp, res)
 
     def speech(self):
