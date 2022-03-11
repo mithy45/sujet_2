@@ -15,7 +15,7 @@ class Knight(Character):
     def speech(self):
         speech = \
             f"""
-        Malheureusment vous êtes fait teleporter dans la foret de Fark, là où les monstres les plus terrifiants rodent ! 
+        Malheureusment vous êtes fait téléporter dans la foret de Fark, là où les monstres les plus terrifiants rodent ! 
         Vous vous remettez à peine de vos esprits que vous vous faites déjà agresser par 
         un Kobolt ! Vous vous saisissez de votre arme et engagez le combat ! 
         *combat*
@@ -32,6 +32,7 @@ class Knight(Character):
         print(speech)
         self.restore_hp(10)
         print(f"\t{self.current_hp}")
+        speech = \
         """
         Une éclaircie entre les arbres vous fait apercevoir le château du roi au loin !
         Vous decidez de vous y diriger, vous laissez derriere vous des traces de votre
@@ -41,6 +42,7 @@ class Knight(Character):
 
         *Oui/Non*
         """
+        print(speech)
 
         if (input("\tOui/Non ? :\n\t").lower() == "non"):
             a = \
