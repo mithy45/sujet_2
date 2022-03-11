@@ -17,7 +17,7 @@ class Character:
         self.max_hp = max_hp
 
     def attack(self, ennemy):
-        ennemy.current_hp -= self.ad
+        ennemy.get_damage(self.ad)
 
     @abstractmethod
     def get_damage(self, ad):
